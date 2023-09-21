@@ -34,8 +34,8 @@ public class UserServiceImpl implements UserService {
         user.setEmail(userDto.getEmail());
         user.setPassword(passwordEncoder.encode(userDto.getPassword()));
 
-        User user1 = userRepository.save(user);
-        fileStorageService.initUserFolder(user1);
+        user = userRepository.save(user);
+        fileStorageService.initUserFolder(user);
     }
 
     @Override

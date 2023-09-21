@@ -23,6 +23,7 @@
 	      <th scope="col">File Name</th>
 	      <th scope="col">Link</th>
 	      <th scope="col">Actions</th>
+	      <th scope="col">Actions</th>
 	  </tr>
 	  </thead>
 	  <tbody>
@@ -30,8 +31,24 @@
 	      <td>[[${file.name}]]</td>
 	      <td><a th:href="@{ '/files/'  + ${file.url}}">Download</a></td>
 	      <td>
-		<a th:href="@{'/files/delete/' + ${file.name}}" th:fileName="${file.name}" id="btnDelete"
+		<a th:href="@{'/files/delete/'  + ${file.url}}" th:fileName="${file.name}" id="btnDelete"
 		   title="Delete this file" class="fa-regular fa-trash-can icon-dark btn-delete">Delete</a>
+	      </td>
+	      <td>
+		<form
+		        id="uploadForm"
+		        method="post"
+		        th:action="@{'/files/update/' + ${file.url}}"
+		        enctype="multipart/form-data">
+		    <input id="input-file" type="file" name="file" />
+		    <button class="btn btn-sm btn-outline-success float-right" type="submit">
+		        Update
+		    </button>
+		</form>
+		<a th:href="@{'/files/update/'  + ${file.url}}" th:fileName="${file.name}" id="btnUpdate"
+		   title="Delete this file" class="fa-regular fa-trash-can icon-dark btn-delete">Update</a>
+		
+		
 	      </td>
 	  </tr>
 	  </tbody>

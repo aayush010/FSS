@@ -20,9 +20,9 @@ import java.util.stream.Stream;
 public class FileStorageServiceImpl implements FileStorageService{
 
     @Autowired
-    UserDataService userDataService;
+    private UserDataService userDataService;
 
-    private final Path root = Paths.get("./uploads");
+    static final Path root = Paths.get("./uploads");
 
     @Override
     public void init() {
@@ -88,5 +88,21 @@ public class FileStorageServiceImpl implements FileStorageService{
         } catch (IOException e) {
             throw new RuntimeException("Could not load the files!");
         }
+    }
+
+    @Override
+    public void delete(String filename, String id) {
+        Path newPath = Paths.get(root + "/" + id);
+        try {
+            Files.delete(newPath.resolve(filename));
+            userDataService.delete(filename, id);
+        } catch (IOException e) {
+            throw new RuntimeException("Could not delete the file!");
+        }
+    }
+
+    @Override
+    public void replace(String filename, String id) {
+
     }
 }
