@@ -4,7 +4,6 @@ import Dropbox.demo.Login.entity.User;
 import Dropbox.demo.Login.service.UserServiceImpl;
 import Dropbox.demo.StorageService.Model.FileInfo;
 import Dropbox.demo.StorageService.Service.FileStorageService;
-import jakarta.servlet.http.HttpServletRequest;
 import org.springframework.core.io.Resource;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpHeaders;
@@ -17,8 +16,8 @@ import org.springframework.ui.Model;
 import java.util.List;
 import java.util.stream.Collectors;
 
-import static Dropbox.demo.StorageService.Constants.MESSAGE;
-import static Dropbox.demo.StorageService.Constants.SUCCESS_MESSAGE;
+import static Dropbox.demo.Constants.Constants.MESSAGE;
+import static Dropbox.demo.Constants.Constants.SUCCESS_MESSAGE;
 
 @Controller
 public class FileController {

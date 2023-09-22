@@ -21,6 +21,4 @@ public interface FileStorageService {
     public Stream<Path> loadAll(String id);
 
     void delete(String filename, String id);
-
-    void replace(String filename, String id);
 }

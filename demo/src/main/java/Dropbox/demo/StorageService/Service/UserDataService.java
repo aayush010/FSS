@@ -11,7 +11,8 @@ import org.springframework.web.multipart.MultipartFile;
 
 import java.util.Optional;
 
-import static Dropbox.demo.StorageService.Service.FileStorageServiceImpl.root;
+import static Dropbox.demo.Constants.Constants.root;
+
 
 @Service
 public class UserDataService {

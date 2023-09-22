@@ -16,13 +16,13 @@ import java.nio.file.Path;
 import java.nio.file.Paths;
 import java.util.stream.Stream;
 
+import static Dropbox.demo.Constants.Constants.root;
+
 @Component
 public class FileStorageServiceImpl implements FileStorageService{
 
     @Autowired
     private UserDataService userDataService;
-
-    static final Path root = Paths.get("./uploads");
 
     @Override
     public void init() {
@@ -99,10 +99,5 @@ public class FileStorageServiceImpl implements FileStorageService{
         } catch (IOException e) {
             throw new RuntimeException("Could not delete the file!");
         }
-    }
-
-    @Override
-    public void replace(String filename, String id) {
-
     }
 }
